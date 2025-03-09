@@ -1,0 +1,55 @@
+{% load static %}
+<header>
+    <div class="pre-header">
+        <div id="logo">
+            <img id="logo" src="{% static 'main/img/logo.png' %}" alt="">
+        </div>
+        <div class="pre-header-info-wrapper">
+            <div class="pre-header-info">
+                <img src="{% static 'main/img/location.png' %}" alt="">
+                <a target="_blank"
+                    href="https://yandex.ru/maps/org/usadba_uyuta/148281453059/?display-text=%D1%83%D1%81%D0%B0%D0%B4%D1%8C%D0%B1%D0%B0%20%D1%83%D1%8E%D1%82%D0%B0&ll=43.087179%2C44.096322&mode=search&sctx=ZAAAAAgBEAAaKAoSCUHTEiujmUNAERlxAWiU1ElAEhIJWHA%2F4IEB1T8RNC4cCMkCwj8iBgABAgMEBSgKOABAwQFIAWoCcnWdAc3MzD2gAQCoAQC9AU%2BgEt%2FCAQaD1I2yqASCAhfRg9GB0LDQtNGM0LHQsCDRg9GO0YLQsIoCAJICAJoCDGRlc2t0b3AtbWFwcw%3D%3D&sll=43.087179%2C44.096322&sspn=1.312866%2C0.652203&text=%D1%83%D1%81%D0%B0%D0%B4%D1%8C%D0%B1%D0%B0%20%D1%83%D1%8E%D1%82%D0%B0&z=10">Иноземцево,
+                    ул Шоссейная 130А</a>
+            </div>
+            <div class="pre-header-info">
+                <img src="{% static 'main/img/phone.png' %}" alt="">
+                <p class="copy-text" onclick="copyText(event)">+7 928 374-09-52</p>
+            </div>
+            <div class="pre-header-info">
+                <a class="btn" href="{% url 'main:rooms' 'standart' %}">Забронировать</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav">
+        <div class="burger">
+            <img src="{% static 'img/menu.png' %}" alt="">
+        </div>
+        <div class="nav-item dropdown">
+            <a href="">Номера</a>
+            <img src="{% static 'img/down-arrow.png' %}" alt="">
+            <div class="dropdown-content">
+                <a href="">Стандарт</a>
+                <a href="">Люкс</a>
+            </div>
+        </div>
+        <div class="nav-item dropdown">
+            <a href="">Услуги</a>
+            <img src="{% static 'img/down-arrow.png' %}" alt="">
+            <div class="dropdown-content">
+                <a href="">Услуга1</a>
+                <a href="">Услуга2</a>
+                <a href="">Услуга3</a>
+            </div>
+        </div>
+        <div class="nav-item">
+            <a href="">Цены</a>
+        </div>
+        <div class="nav-item">
+            <a href="">Информация</a>
+        </div>
+        <div class="nav-item">
+            <a href="">Контакты</a>
+        </div>
+    </div>
+</header>
