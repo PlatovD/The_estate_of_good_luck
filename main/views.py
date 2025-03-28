@@ -1,15 +1,20 @@
-from django.shortcuts import render
-from django.views.generic import View, ListView, DetailView, TemplateView
+from django.views.generic import ListView, DetailView, TemplateView
+
+from .models import Room, Service
 
 
-class HomeView(View):
-    def get(self, request, *args, **kwargs):
-        return render(request, 'main/home.html')
+class HomeView(TemplateView):
+    template_name = 'main/home.html'
+    extra_context = {
+        'rooms': Room.objects.prefetch_related('images').all(),
+        'services': Service.objects.prefetch_related('images').all(),
+    }
 
 
 class ServicesView(ListView):
     template_name = 'main/services.html'
-    allow_empty = True
+    model = Service
+    context_object_name = 'services'
 
 
 class ServicesDetailView(DetailView):
@@ -32,7 +37,17 @@ class ContactsView(TemplateView):
 
 class RoomsView(ListView):
     template_name = 'main/rooms.html'
-    allow_empty = True
+    model = Room
+    context_object_name = 'rooms'
+
+    def get_queryset(self):
+        name = self.kwargs['room_type']
+        return Room.objects.filter(category__name=name).prefetch_related('images').all()
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'люкс' if self.kwargs['room_type'] == 'luxe' else 'стандарт'
+        return context
 
 
 class RoomsDetailView(DetailView):

@@ -5,33 +5,70 @@
     font-style: normal;
 }
 
-:root {
-    --main-color: #1ba21b;
-    --secondary-color: #276627;
+@font-face {
+    font-family: 'Mulish';
+    src: url('../fonts/Mulish-VariableFont_wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@keyframes fillLine {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+:root {
+    --main-color: #a38e7b;
+    --text-second-color: #836951;
+    --third-color: #523d30;
+    --body-color: #d8d5ce;
 }
 
 * {
     padding: 0;
     margin: 0;
+    font-size: 1em;
+}
+
+body {
+    background-color: var(--body-color);
     font-family: 'Roboto', sans-serif;
     color: #fff;
-    font-size: 1em;
 }
 
 a {
     text-decoration: none;
     cursor: pointer;
+    color: #fff;
+}
+
+a:hover {
+    color: var(--third-color);
+    transition: color 0.2s;
 }
 
 header {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
     background-color: var(--main-color);
     min-width: 100%;
-    position: sticky;
+    position: relative;
     top: 0;
     left: 0;
     top: 0;
@@ -40,55 +77,42 @@ header {
 }
 
 #logo {
-    height: 12vh;
-    padding-inline: 2em;
+    font-family: 'Mulish' !important;
+    padding-inline: 1em;
+    font-size: 3.3em;
+    text-align: center;
+    background-color: var(--body-color) !important;
+}
+
+#logo h1 {
+    color: var(--third-color) !important;
+
 }
 
 header .nav {
     display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-.pre-header {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
     flex-direction: row;
-    justify-content: space-around;
-}
-
-.pre-header-info-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.pre-header-info {
-    display: flex;
-    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.3em;
+    top: 0;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.pre-header-info {
-    padding-left: 0.3em;
-}
-
-.copy-text:hover {
-    cursor: pointer;
-}
-
-.pre-header-info img {
-    height: 5vh;
+.sticky {
+    position: fixed;
+    top: 0;
+    width: auto;
+    width: 100%;
 }
 
 .btn {
     border: 1px #fff solid;
     border-radius: 5px;
     padding: 0.7em;
-    background-color: #199619;
+    background-color: #87e1e6;
     transition-duration: 0.3s;
 }
 
@@ -97,8 +121,8 @@ header .nav {
 }
 
 .nav {
-    background-color: var(--secondary-color);
-    font-size: 1.2em;
+    background-color: var(--main-color);
+    font-size: 1.5em !important;
 }
 
 .dropdown {
@@ -107,13 +131,12 @@ header .nav {
     flex-direction: row;
     justify-content: space-between;
     transition-duration: 200ms;
+    transition-property: height;
 }
 
 .nav-item {
     cursor: pointer;
-    padding-inline: 2em;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 0.2em 2em;
 }
 
 .nav-item:hover {
@@ -123,23 +146,24 @@ header .nav {
 .dropdown img {
     width: 1.2em;
     margin-bottom: -5px;
+    transition-duration: 200ms;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
+    left: 0;
     background-color: white;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     min-width: 100%;
     top: calc(100%);
-    left: calc(0%);
-    z-index: 1;
-    color: black;
+    z-index: 2;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     text-align: center;
     background-color: var(--main-color);
+    transition: 0.3s ease-in-out 0.3s ease-in-out;
 }
 
 .dropdown-content a {
@@ -148,37 +172,79 @@ header .nav {
     padding-bottom: 1em;
     transform: none;
     overflow: hidden;
-}
-
-.dropdown-content a:hover {
-    background-color: #188c18;
+    border-top: 1px #fff solid;
+    animation-duration: 500ms;
 }
 
 .burger {
     display: none;
 }
 
+.animated-line {
+    background-color: var(--text-second-color);
+    height: 2.5px;
+    margin-top: 1px;
+}
+
+.animate {
+    animation: fillLine 1s forwards;
+}
+
+
+
+.decoration-line {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 0.2em 1em;
+    border-top: 1px var(--third-color) solid;
+    border-bottom: 1px var(--third-color) solid;
+    animation: marquee 20s infinite linear;
+}
+
+.decoration-line img {
+    width: 2em;
+}
+
+.nav-items-container {
+    position: relative;
+}
+
+
+
+.mobile-burger {
+    display: none;
+}
+
+.footer-table {
+    padding: 1em;
+    display: grid;
+    background-color: var(--third-color);
+    grid-template-columns: repeat(4, 1fr);
+}
+
 @media (max-width: 800px) {
-    .pre-header {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(2, 1fr);
+    header {
+        position: sticky;
     }
 
-    .pre-header-info-wrapper {
-        display: flex;
-        flex-direction: column;
+    #logo {
+        font-size: 1.8em;
+    }
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
         align-items: center;
-        text-align: center;
-        justify-content: center;
+
     }
 
-    .pre-header-info {
+    .dashed-line {
         display: none;
     }
 
-    .pre-header-info:last-child {
-        display: block;
+    .decoration-line {
+        display: none;
     }
 
     #logo {
@@ -189,19 +255,49 @@ header .nav {
         font-size: 0.8em;
     }
 
+    .mobile-burger {
+        display: block;
+    }
+
     .burger {
+        position: relative;
+        justify-content: end;
         display: flex;
         margin-top: 0.1em;
-        margin-bottom: 0.1em;
+        margin-bottom: 0em;
         justify-content: flex-end;
-        width: 100%;
+        width: 50%;
     }
 
     .burger img {
         width: 2em;
+        height: auto;
     }
 
     .nav-item {
         display: none;
+    }
+
+    .mobile-burger-dropdown-nav {
+        display: flex;
+        position: absolute;
+        right: 0;
+        left: 100%;
+        flex-direction: column;
+        background-color: var(--main-color);
+        overflow: hidden;
+        transition: left 0.3s ease;
+        border-top: 1px var(--third-color) solid;
+    }
+
+    .mobile-burger-dropdown-nav a {
+        padding: 0.2em 0;
+    }
+
+    .header-dropdown {
+        display: none;
+        flex-direction: column;
+        justify-content: space-around;
+        background-color: var(--third-color);
     }
 }

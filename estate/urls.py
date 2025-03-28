@@ -10,5 +10,8 @@ urlpatterns = [
     path('', include('main.urls', namespace='main')),
 ]
 
+admin.site.site_header = "Администрация сайта усадьбы Уюта"
+admin.site.index_title = "Лучший отдых"
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

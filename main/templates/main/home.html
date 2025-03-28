@@ -5,31 +5,129 @@
 <link rel="stylesheet" href="{% static 'main/css/home.css' %}">
 {% endblock %}
 {% block content %}
-<!-- Slider main container -->
-<div class="swiper">
-    <!-- Additional required wrapper -->
+<div class="swiper-inozemcevo">
     <div class="swiper-wrapper">
-        <!-- Slides -->
-        <div class="swiper-slide"><img src="{% static 'main/img/sliderMain.png' %}" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'main/img/rooms/image.png' %}" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'main/img/rooms/image.png' %}" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'main/img/rooms/image.png' %}" alt=""></div>
-        <div class="swiper-slide"><img src="{% static 'main/img/rooms/image.png' %}" alt=""></div>
+        <div class="swiper-slide">
+            <img src="{% static 'main/img/mainslider/1.jpeg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="{% static 'main/img/mainslider/2.jpeg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="{% static 'main/img/mainslider/3.jpeg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="{% static 'main/img/mainslider/1.jpeg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="{% static 'main/img/mainslider/2.jpeg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="{% static 'main/img/mainslider/3.jpeg' %}" alt="">
+        </div>
     </div>
-    <!-- If we need pagination -->
-    <div class="swiper-pagination"></div>
-
-    <!-- If we need navigation buttons -->
-    <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
-
-    <!-- If we need scrollbar -->
-    <div class="swiper-scrollbar"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
 </div>
 
+<div class="content-wrapper">
+    <h2>Номера</h2>
+    <div class="animated-line"></div>
+    <div class="list-container">
+        {% for room in rooms %}
+        <div class="list-el-container">
+            <div class="swiper">
+                <div class="fixed-text-top-el">
+                    <p>{{ room.name }}</p>
+                </div>
+
+
+                <div class="swiper-wrapper">
+                    {% for image in room.images.all %}
+                    <div class="swiper-slide">
+                        <a href="{% url 'main:rooms_detail' room.category room.id %}">
+                            <img src="{{ image.image.url }}" alt="{{ room.name }}">
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="fixed-hover-text">
+                    <p>Подробнее</p>
+                </div>
+                <div class="fixed-text-bottom-el">
+                    <p>{{ room.price }} &#8381;</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="content-wrapper">
+    <h2>Услуги</h2>
+    <div class="animated-line"></div>
+    <div class="list-container">
+        {% for service in services %}
+        <div class="list-el-container">
+            <div class="swiper">
+                <div class="fixed-text-top-el">
+                    <p>{{ service.name }}</p>
+                </div>
+                <div class="swiper-wrapper">
+                    {% for image in service.images.all %}
+                    <div class="swiper-slide">
+                        <a href="{% url 'main:services_detail' service.id %}">
+                            <img src="{{ image.image.url }}" alt="{{ service.name }}">
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="fixed-hover-text">
+                    <p>Подробнее</p>
+                </div>
+                <div class="fixed-text-bottom-el">
+                    <p>{{ service.price }} &#8381;</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<div class="content-wrapper">
+    <h2>Почему выбирают нас?</h2>
+    <div class="animated-line"></div>
+    <div class="home-guest-house-description">
+        <ul>
+            <li class="bookmark-container-animated">
+                <p>"...номера просторные и уютные, кровати большие и удобные" - Evgenii</p>
+            </li>
+            <li class="bookmark-container-animated">
+                <p>"Отличное расположение, доброжелательная атмосфера!" - Irina</p>
+            </li>
+            <li class="bookmark-container-animated">
+                <p>"...прекрасное отношение к проживающим" - Viktoriya</p>
+            </li>
+            <li class="bookmark-container-animated">
+                <p>"Замечательное тихое, уютное место для отдыха!" - Arzu</p>
+            </li>
+        </ul>
+    </div>
+    <div class="another-reviews">
+        <h3>Больше отзывов:</h3>
+        <a target="_blank"
+            href="https://yandex.ru/maps/org/usadba_uyuta/148281453059/reviews/?ll=43.087189%2C44.096337&rl=43.087222%2C44.096322&rlt=area&tab=reviews&z=20.52">Yandex</a>
+        <a target="_blank"
+            href="https://ostrovok.ru/hotel/russia/inozemcevo/mid11232921/gostevoy_dom_usadyba_uyuta/?ysclid=m8g339etst437518957">Островок!</a>
+    </div>
+</div>
+
+
+<!-- <div id="map"></div> -->
 {% endblock %}
 
 {% block js %}
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<!-- <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript"></script> -->
 <script src="{% static 'main/js/home.js' %}"></script>
 {% endblock %}

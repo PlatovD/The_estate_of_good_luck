@@ -1,1 +1,44 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <h2>Услуги</h2>
+    <div class="animated-line"></div>
+    <div class="list-container">
+        {% for service in services %}
+        <div class="list-el-container">
+            <div class="swiper">
+                <div class="fixed-text-top-el">
+                    <p>{{ service.name }}</p>
+                </div>
+                <div class="swiper-wrapper">
+                    {% for image in service.images.all %}
+                    <div class="swiper-slide">
+                        <a href="{% url 'main:services_detail' service.id %}">
+                            <img src="{{ image.image.url }}" alt="{{ service.name }}">
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="fixed-hover-text">
+                    <p>Подробнее</p>
+                </div>
+                <div class="fixed-text-bottom-el">
+                    <p>{{ service.price }} &#8381;</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'main/js/home.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+{% endblock %}
