@@ -1,22 +1,24 @@
 function initSwipers() {
-  const swiper = new Swiper('.swiper', {
+  const swiperItems = new Swiper('.item-swiper', {
     spaceBetween: 0,
     speed: 700,
     centeredSlides: true,
     loop: true,
     autoplay: {
+      pauseOnMouseEnter: true,
       delay: 4500,
       disableOnInteraction: false,
     },
   });
 
-  const swiper2 = new Swiper('.swiper-inozemcevo', {
-    spaceBetween: 30,
+  const swiperBigMain = new Swiper('.swiper-inozemcevo', {
+    spaceBetween: 0,
+    speed: 800,
     loop: true,
     centeredSlides: true,
     autoplay: {
-      delay: 4500,
-      disableOnInteraction: false,
+      delay: 8500,
+      disableOnInteraction: false,  
     },
     pagination: {
       el: ".swiper-pagination",
@@ -25,6 +27,29 @@ function initSwipers() {
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
+    },
+  });
+
+  const swiperReviews = new Swiper(".reviewSwiper", {
+    direction: "vertical",
+    loop: true,
+    speed: 900,
+    effect: 'coverflow',
+    coverflowEffect: {
+      rotate: 30,
+      stretch: 10,
+      depth: 100,
+      modifier: 2,
+      slideShadows: true,
+    },
+    autoplay: {
+      pauseOnMouseEnter: true,
+      delay: 40000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
     },
   });
 }
@@ -52,12 +77,14 @@ function setOnRoomsHover() {
   const texts = document.querySelectorAll('.swiper');
   texts.forEach(el => {
     const fixedHoverText = el.querySelector('.fixed-hover-text');
-    el.addEventListener('mouseenter', () => {
-      fixedHoverText.style.display = 'block';
-    })
-    el.addEventListener('mouseleave', () => {
-      fixedHoverText.style.display = 'none';
-    })
+    if (fixedHoverText) {
+      el.addEventListener('mouseenter', () => {
+        fixedHoverText.style.display = 'block';
+      })
+      el.addEventListener('mouseleave', () => {
+        fixedHoverText.style.display = 'none';
+      })
+    }
   })
 }
 

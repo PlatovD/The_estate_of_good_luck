@@ -8,22 +8,20 @@
 <div class="swiper-inozemcevo">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
-            <img src="{% static 'main/img/mainslider/1.jpeg' %}" alt="">
+            <img src="{% static 'main/img/mainslider/4.jpg' %}" alt="">
         </div>
         <div class="swiper-slide">
-            <img src="{% static 'main/img/mainslider/2.jpeg' %}" alt="">
+            <img src="{% static 'main/img/mainslider/5.jpg' %}" alt="">
         </div>
         <div class="swiper-slide">
-            <img src="{% static 'main/img/mainslider/3.jpeg' %}" alt="">
+            <img src="{% static 'main/img/mainslider/2.jpg' %}" alt="">
         </div>
         <div class="swiper-slide">
-            <img src="{% static 'main/img/mainslider/1.jpeg' %}" alt="">
+            <img src="{% static 'main/img/mainslider/3.jpg' %}" alt="">
         </div>
+
         <div class="swiper-slide">
-            <img src="{% static 'main/img/mainslider/2.jpeg' %}" alt="">
-        </div>
-        <div class="swiper-slide">
-            <img src="{% static 'main/img/mainslider/3.jpeg' %}" alt="">
+            <img src="{% static 'main/img/mainslider/1.jpg' %}" alt="">
         </div>
     </div>
     <div class="swiper-button-next"></div>
@@ -37,7 +35,7 @@
     <div class="list-container">
         {% for room in rooms %}
         <div class="list-el-container">
-            <div class="swiper">
+            <div class="swiper item-swiper">
                 <div class="fixed-text-top-el">
                     <p>{{ room.name }}</p>
                 </div>
@@ -70,7 +68,7 @@
     <div class="list-container">
         {% for service in services %}
         <div class="list-el-container">
-            <div class="swiper">
+            <div class="swiper item-swiper">
                 <div class="fixed-text-top-el">
                     <p>{{ service.name }}</p>
                 </div>
@@ -94,10 +92,12 @@
         {% endfor %}
     </div>
 </div>
+
 <div class="content-wrapper">
     <h2>Почему выбирают нас?</h2>
     <div class="animated-line"></div>
-    <div class="home-guest-house-description">
+
+    <!-- <div class="home-guest-house-description">
         <ul>
             <li class="bookmark-container-animated">
                 <p>"...номера просторные и уютные, кровати большие и удобные" - Evgenii</p>
@@ -119,6 +119,143 @@
             href="https://yandex.ru/maps/org/usadba_uyuta/148281453059/reviews/?ll=43.087189%2C44.096337&rl=43.087222%2C44.096322&rlt=area&tab=reviews&z=20.52">Yandex</a>
         <a target="_blank"
             href="https://ostrovok.ru/hotel/russia/inozemcevo/mid11232921/gostevoy_dom_usadyba_uyuta/?ysclid=m8g339etst437518957">Островок!</a>
+    </div> -->
+    <div class="swiper reviewSwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="reviews-container">
+
+                    <div class="review not-center-review">
+                        <div class="review-author">
+                            <h3>irinamosienko1978</h3>
+                            <img src="{% static 'main/img/5stars.png' %}" alt="">
+                        </div>
+                        <div class="review-text">
+                            Заехали в гостевой дом Усадьба уюта по рекомендации своих друзей, отдыхаем здесь с мужем уже
+                            не в первый раз. Нам все нравится. Атмосфера комфорта и уюта. Отдыхали в разных номерах все
+                            номера, очень чистые и комфортные. Всем рекомендую!!! Мы стали постоянными гостями. Большое
+                            спасибо хозяевам и администраторам!!! Да, отдельно хотим отметить сауну и кафе в гостевом
+                            доме, очень атмосферно!!! Поэтому приезжайте, будите доволльны и ценами и отношением к
+                            гостям!!
+                        </div>
+                        <a target="_blank"
+                            href="https://yandex.ru/maps/org/148281453059/reviews?reviews%5BpublicId%5D=4r4vhmnqf600uzav6dbvtrxgzr&si=4zhjw283wrmdfww7zdwqzuywwm&utm_source=review">
+                            <div class="original-review">Посмотреть оригинал на <img
+                                    src="{% static 'main/img/yandex.png' %}" alt=""></div>
+                        </a>
+                    </div>
+
+                    <div class="review">
+                        <div class="review-author">
+                            <h3>Tatyana Koryakina</h3>
+                            <img src="{% static 'main/img/5stars.png' %}" alt="">
+                        </div>
+                        <div class="review-text">
+                            Гостевой дом расположен среди частного сектора, хорошая асфальтовая дорога для подъезда. В
+                            шаговой доступности магазины, кафе, пункт Wallsberry, храм. Радушные хозяева, везде чисто,
+                            свежий ремонт, чистое бельё. Как во многих гостевых домах нужно разуться при входе, берите
+                            сменную обуви или вам предложат тапочки. На обоих этажах кухни, со всеми необходимым -
+                            посуда, кастрюли, холодильник. Номер уютный, тёплый, тихое место. Есть полотенца, гель для
+                            душа. Работает телевизор, кондиционер, есть WiFi на хорошей скорости, сотовая связь
+                            устойчива. Мы были в марте 2024 г проездом на Эльбрус. Рекомендую!
+                        </div>
+                        <a target="_blank"
+                            href="https://yandex.ru/maps/org/148281453059/reviews?reviews%5BpublicId%5D=4tu3vkaex694u51fgz5hwuy85r&si=4zhjw283wrmdfww7zdwqzuywwm&utm_source=review">
+                            <div class="original-review">Посмотреть оригинал на <img
+                                    src="{% static 'main/img/yandex.png' %}" alt=""></div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="reviews-container">
+
+                    <div class="review not-center-review">
+                        <div class="review-author">
+                            <h3>Александр Б.</h3>
+                            <img src="{% static 'main/img/5stars.png' %}" alt="">
+                        </div>
+                        <div class="review-text">
+                            Этот дом на 1000% оправдывает свое название. Мы переночевали только одну ночь, но у нас
+                            только самые положительные оценки и эмоции об этом месте. Нас встретили приветливые и
+                            добродушные хозяева, сделали хорошую скидку. По уюту и отношению к гостям видно, что вы
+                            любите свой дом и гостей. К вам хочется ещё раз вернуться. Успеха вам и процветания. Уже 2
+                            разв в данном месте останавливались, всё СУПЕР
+                        </div>
+                        <a target="_blank"
+                            href="https://yandex.ru/maps/org/148281453059/reviews?reviews%5BpublicId%5D=zx7etgpjtukuxrj7nqe4au6zyc&si=4zhjw283wrmdfww7zdwqzuywwm&utm_source=review">
+                            <div class="original-review">Посмотреть оригинал на <img
+                                    src="{% static 'main/img/yandex.png' %}" alt=""></div>
+                    </div></a>
+
+                    <div class="review">
+                        <div class="review-author">
+                            <h3>Елена Анютина</h3>
+                            <img src="{% static 'main/img/5stars.png' %}" alt="">
+                        </div>
+                        <div class="review-text">
+                            Очень уютная гостиница. Есть кухня, где можно что-нибудь приготовить. В номере есть чайник,
+                            кружки, чай и т.д. Номер большой и чистый. Рекомендуем для посещения ( особенно кто
+                            путешествует на машине). Хорошее месторасположение между Железноводском и Пятигорском
+                        </div>
+                        <a target="_blank"
+                            href="https://yandex.ru/maps/org/148281453059/reviews?reviews%5BpublicId%5D=whpcn3wt2kf9bhuanjkvt0atv8&si=4zhjw283wrmdfww7zdwqzuywwm&utm_source=review">
+                            <div class="original-review">Посмотреть оригинал на <img
+                                    src="{% static 'main/img/yandex.png' %}" alt=""></div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="reviews-container">
+
+                    <div class="review not-center-review">
+                        <div class="review-author">
+                            <h3>Алексей Мосиенко</h3>
+                            <img src="{% static 'main/img/5stars.png' %}" alt="">
+                        </div>
+                        <div class="review-text">
+                            Отличное место, очень уютно и чисто. Шикарное место, как для отдыха, так и для проведения
+                            различных торжеств. В Усадьбе есть комфортабельные номера, прекрасная баня, шашлычная зона и
+                            банкетные зал в стиле охотничьего домика. Великолепная отделка интерьера. Хозяева,
+                            прекрасные люди . Всем советую посетить. Цены приемлимые. Постоянным клиентам делают скидки.
+                        </div>
+                        <a target="_blank"
+                            href="https://yandex.ru/maps/org/148281453059/reviews?reviews%5BpublicId%5D=wr3qe908x7138npdnjeuajghbg&si=4zhjw283wrmdfww7zdwqzuywwm&utm_source=review">
+                            <div class="original-review">Посмотреть оригинал на <img
+                                    src="{% static 'main/img/yandex.png' %}" alt=""></div>
+                        </a>
+                    </div>
+
+                    <div class="review">
+                        <div class="review-author">
+                            <h3>Анна И.</h3>
+                            <img src="{% static 'main/img/5stars.png' %}" alt="">
+                        </div>
+                        <div class="review-text">
+                            Отличное место. Чисто, уютно, мебель и текстиль новые. Я слегка брезгливая, но в этом доме
+                            нестрашно даже босиком в комнате походить)
+                            Не вдавались в подробности изначально, от соседей по комнате узнали, что сзади есть летняя
+                            кухня с мангальной зоной, от которой наши соседи тоже были в восторге)
+                            Очень рекомендую, своих денег комнаты точно стоят.
+                            Внутри: отдельный су, телевизор со всеми нужными каналами, кондиционер, мини-холодильник в
+                            шкафчике, полотенца с запасом, индивидуальные отельные наборы гигиены. Варианты освещения
+                            комнаты на любой вкус. Бесплатный вайфай ( подключаться не пробовали, т.к. отлично ловил
+                            мобильный интернет)
+                        </div>
+                        <a target="_blank"
+                            href="https://yandex.ru/maps/org/148281453059/reviews?reviews%5BpublicId%5D=uwrxfay5w411mhgty89eg06eqc&si=4zhjw283wrmdfww7zdwqzuywwm&utm_source=review">
+                            <div class="original-review">Посмотреть оригинал на <img
+                                    src="{% static 'main/img/yandex.png' %}" alt=""></div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
     </div>
 </div>
 

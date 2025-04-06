@@ -1,13 +1,59 @@
 {% load static %}
 <footer>
     <div class="footer-table">
-        <div>
-            <p>Номера</p>
-            <a href="{% url 'main:rooms' 'standard' %}">Стандарт</a>
-            <a href="{% url 'main:rooms' 'luxe' %}">Люкс</a>
+        <div class="footer-table-item">
+            <ul>
+                <li id="social-footer" class="footer-category">Соцсети</li>
+                <div class="footer-redirect-row">
+                    <li><a target="_blank"
+                            href="https://api.whatsapp.com/send/?phone=79283740952&text&type=phone_number&app_absent=0"><img
+                                src="{% static 'main/img/telegram.png' %}" alt=""></li>
+                    <li><a target="_blank"
+                            href="https://api.whatsapp.com/send/?phone=79283740952&text&type=phone_number&app_absent=0"><img
+                                src="{% static 'main/img/whatsapp.png' %}" alt=""></li>
+                    <li><a href=""></a></li>
+                </div>
+            </ul>
+        </div>
+        <div class="footer-table-item">
+            <ul>
+                <li class="footer-category">Номера</li>
+                <li><a href="{% url 'main:rooms' 'standard' %}">Стандарт</a></li>
+                <li><a href="{% url 'main:rooms' 'half-luxe' %}">Полулюкс</a></li>  
+                <li><a href="{% url 'main:rooms' 'luxe' %}">Люкс</a></li>
+            </ul>
         </div>
 
+        <div class="footer-table-item">
+            <ul>
+                <li class="footer-category">Услуги</li>
+                {% for service in services %}
+                <li><a href="{% url 'main:services_detail' service.id  %}">{{ service.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
 
+        <div class="footer-table-item">
+            <ul>
+                <li class="footer-category">О нас</li>
+                <li><a href="{% url 'main:info' %}">Информация</a></li>
+                <li><a href="{% url 'main:contacts' %}">Контакты</a></li>
+                <li><a href="">Q&A</a></li>
+                <li><a href="">Пользовательское соглашение</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-table-item">
+            <ul>
+                <li class="footer-category" id="logo-footer">Усадьба Уюта</li>
+                <li>&copy;
+                    <script>document.write(new Date().getFullYear())</script> Все права защищены
+                </li>
+                <li class="footer-author"><a target="_blank" href="https://github.com/PlatovD">Powered by: PlatovD <img
+                            id="author-footer-img" src="{% static 'img/github.png' %}" alt=""></a></li>
+            </ul>
+        </div>
     </div>
-    <!-- <div class="footer-author"><a href="https://github.com/PlatovD">By: PlatovD</a></div> -->
+
+
 </footer>

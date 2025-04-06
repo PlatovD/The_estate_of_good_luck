@@ -1,34 +1,63 @@
 {% load static %}
 <header>
-    <div id="logo">
-        <a href="{% url 'main:home' %}">
-            <h1 class="">Усадьба Уюта</h1>
-        </a>
-    </div>
-    <div class="nav">
+    <div class="head-container">
+        <div id="prelogo">
+            <div class="flex-row">
+                <img src="{% static 'img/pin.png' %}" alt="">
+                <div>
+                    <p>Шоссейная 130А</p>
+                    <p>пос. Иноземцево</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-space"></div>
+
+        <div id="logo">
+            <a href="{% url 'main:home' %}">
+                <h1 class="">Усадьба Уюта</h1>
+                <p>гостевой дом</p>
+            </a>
+        </div>
+
+
+
         <div class="mobile-burger">
             <div class="burger">
-                <img src="{% static 'img/menu.png' %}" alt="">
+                <p>&#9776;</p>
             </div>
             <div class="mobile-burger-dropdown-nav">
                 <div class="mobile-dropdown-trigger">
                     <a href="">Номера</a>
                     <div class="header-dropdown">
                         <a href="{% url 'main:rooms' 'standard' %}">Стандарт</a>
+                        <a href="{% url 'main:rooms' 'half-luxe' %}">Полулюкс</a>
                         <a href="{% url 'main:rooms' 'luxe' %}">Люкс</a>
                     </div>
                 </div>
                 <a href="{% url 'main:services' %}">Услуги</a>
-                <a href="{% url 'main:prices' %}">Цены</a>
                 <a href="{% url 'main:info' %}">Информация</a>
                 <a href="{% url 'main:contacts' %}">Контакты</a>
             </div>
         </div>
+
+        <div id="header-phone-number">
+            <div class="flex-row">
+                <img src="{% static 'img/call.png' %}" alt="">
+                <div>
+                    <p>+7 928 374-09-52</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="nav">
         <div class="nav-item dropdown">
-            <a href="">Номера</a>
+            <a href="#" onclick="event.preventDefault()">Номера</a>
             <img src="{% static 'img/down-arrow.png' %}" alt="">
             <div class="dropdown-content">
                 <a href="{% url 'main:rooms' 'standard' %}" class="animate__animated animate__zoomIn">Стандарт</a>
+                <a href="{% url 'main:rooms' 'half-luxe' %}" class="animate__animated animate__zoomIn">Полулюкс</a>
                 <a href="{% url 'main:rooms' 'luxe' %}" class="animate__animated animate__zoomIn">Люкс</a>
             </div>
         </div>
@@ -36,13 +65,13 @@
             <a href="{% url 'main:services' %}">Услуги</a>
         </div>
         <div class="nav-item">
-            <a href="{% url 'main:prices' %}">Цены</a>
-        </div>
-        <div class="nav-item">
             <a href="{% url 'main:info' %}">Информация</a>
         </div>
         <div class="nav-item">
             <a href="{% url 'main:contacts' %}">Контакты</a>
+        </div>
+        <div class="nav-item">
+            <a class="btn-a" id="book-header">Забронировать</a>
         </div>
     </div>
 </header>

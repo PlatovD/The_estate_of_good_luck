@@ -33,11 +33,24 @@ document.addEventListener("DOMContentLoaded", function () {
             let dropdown = el.querySelector('.header-dropdown');
             if (dropdown.style.display === "none" || dropdown.style.display == "") {
                 dropdown.style.display = "flex";
-                
+
             } else {
                 dropdown.style.display = "none";
             }
         })
+    })
+
+
+
+    document.querySelector("#book-menu-close-btn").addEventListener('click', e => {
+        closeBookingDialog();
+    })
+
+    document.querySelector("#book-header").addEventListener('click', e => {
+        blockWindow = document.querySelector(".book-block");
+        mainContainer = document.querySelector(".main-container");
+        mainContainer.classList.toggle("main-container-after");
+        blockWindow.style.display = "flex";
     })
 
 });
@@ -47,10 +60,21 @@ window.addEventListener('scroll', function () {
         return;
     }
     const nav = document.querySelector('.nav');
-    if (window.scrollY > 65) {
+    if (window.scrollY > 110) {
         nav.classList.add('sticky');
+        nav.style.opacity = '0.92';
     } else {
         nav.classList.remove('sticky');
+        nav.style.opacity = '1';
     }
 });
+
+
+
+function closeBookingDialog() {
+    blockWindow = document.querySelector(".book-block");
+    mainContainer = document.querySelector(".main-container");
+    mainContainer.classList.toggle("main-container-after");
+    blockWindow.style.display = "none";
+}
 

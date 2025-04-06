@@ -1,0 +1,26 @@
+.info-list-el {
+    font-size: 1.6em;
+    color: var(--third-color);
+}
+
+.info-list-el p {
+    margin-bottom: 1em;
+}
+
+
+.info-list {
+    margin-inline: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-list-el img {
+    width: 50%;
+}
+
+.facilities {
+    border: 1px #836951 solid;
+    border-radius: 7px;
+}

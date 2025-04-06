@@ -46,9 +46,13 @@ class RoomsView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'люкс' if self.kwargs['room_type'] == 'luxe' else 'стандарт'
+        context['title'] = 'люкс' if self.kwargs['room_type'] == 'luxe' else 'стандарт' if self.kwargs[
+                                                                                               'room_type'] == 'standard' else 'полулюкс'
         return context
 
 
 class RoomsDetailView(DetailView):
     template_name = 'main/rooms-detail.html'
+    model = Room
+    slug_url_kwarg = 'number'
+    slug_field = 'id'

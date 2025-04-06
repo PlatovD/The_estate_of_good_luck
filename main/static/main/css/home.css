@@ -1,10 +1,3 @@
-@font-face {
-    font-family: 'Marck-Script';
-    src: url('../fonts/MarckScript-Regular.ttf') format('truetype');
-    font-weight: 100 900;
-    font-style: normal;
-}
-
 @keyframes fillBookmark {
     from {
         transform: translateX(-98%);
@@ -31,12 +24,35 @@
 
     .swiper-slide img {
         width: 100%;
-        overflow: hidden;
-        height: 500px;
+        object-fit: cover;
+        object-position: center;
+        height: 550px;
+    }
+
+    .swiper-button-next {
+        color: #fff;
+    }
+
+    .swiper-button-prev {
+        color: #fff;
+    }
+
+    .swiper-pagination-bullet {
+        background: #fff;
+        opacity: 0.4;
+        width: 14px;
+        height: 7px;
+        border-radius: 0;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #fff;
+        opacity: 1;
+
     }
 }
 
-.swiper {
+.item-swiper {
     position: relative;
     width: 360px;
     z-index: 0;
@@ -79,10 +95,6 @@
 
     .swiper-slide img:hover {
         opacity: 1;
-    }
-
-    .swiper-slide:hover {
-        transform: scale(1.1);
     }
 
     .swiper-wrapper {
@@ -152,13 +164,11 @@
 }
 
 .content-wrapper h2 {
-    font-size: 2.7em;
+    font-size: 2.5em;
     color: var(--text-second-color);
     width: auto;
     padding-left: 0.2em;
 }
-
-
 
 .list-container {
     display: flex;
@@ -244,9 +254,178 @@
     padding-inline: 1em;
 }
 
+.reviewSwiper {
+    height: 410px;
 
+    .swiper-pagination-bullet {
+        background: #fff;
+        opacity: 0.4;
+        border-radius: 0;
+        width: 20px;
+        height: 20px;
+        margin: 25px 0 !important;
+    }
+
+    .swiper-pagination {
+        position: absolute;
+        right: 1%;
+    }
+
+    .reviews-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    .review {
+        width: 40%;
+        height: 80%;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        padding: 0.3em;
+        color: var(--third-color);
+
+        a {
+            color: var(--third-color);
+            opacity: 0.8;
+        }
+
+        .review-author {
+            display: flex;
+            flex-direction: row;
+            padding: 8px;
+            align-items: center;
+            margin-bottom: 1.4em;
+            justify-content: space-between;
+            border-bottom: 1.5px rgba(101, 101, 101, 0.353) solid;
+        }
+
+        .review-text {
+            font-size: 1.2em;
+        }
+
+        .review-author h3 {
+            font-size: 1.5em;
+        }
+
+        .review-author img {
+            width: 7.5em;
+
+        }
+    }
+
+    .swiper-pagination-bullet-active {
+        background: var(--main-color);
+        opacity: 1;
+
+    }
+
+    .original-review {
+        text-align: end;
+    }
+
+    .original-review img {
+        width: 1.3em;
+    }
+
+}
 
 @media (max-width: 800px) {
+    .item-swiper {
+        position: relative;
+        width: 160px;
+        z-index: 0;
+
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 0;
+        }
+
+        .swiper-pagination-bullet {
+            background: #fff;
+            opacity: 0.4;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #fff;
+            opacity: 1;
+
+        }
+
+        .swiper-wrapper p {
+            position: absolute;
+            z-index: 1000;
+        }
+
+        .swiper-slide img {
+            display: block;
+            /* width: 100%;
+            height: 100%; */
+            z-index: 0;
+            opacity: 0.95;
+        }
+
+        .swiper-slide img:hover {
+            opacity: 1;
+        }
+
+        .swiper-wrapper {
+            z-index: 0;
+        }
+    }
+
+    .swiper-inozemcevo {
+        z-index: 0;
+        position: relative;
+        overflow: hidden;
+
+        .swiper-slide img {
+            width: 100%;
+            object-fit: fill;
+            object-position: center;
+            height: 250px;
+        }
+
+        .swiper-button-next {
+            color: #fff;
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 24px;
+        }
+
+        .swiper-button-prev {
+            color: #fff;
+        }
+
+        .swiper-pagination-bullet {
+            background: #fff;
+            opacity: 0.4;
+            width: 7px;
+            height: 3.5px;
+            border-radius: 0;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #fff;
+            opacity: 1;
+
+        }
+    }
+
+
     .list-container {
         flex-direction: column;
         flex-wrap: nowrap;
@@ -255,10 +434,6 @@
     .content-wrapper h2 {
         text-align: center;
         font-size: 1.9em;
-    }
-
-    .list-el-container img {
-        width: 100%;
     }
 
     .fixed-text-info-el-bottom {
@@ -271,6 +446,7 @@
 
     .content-wrapper h2 {
         padding: 0;
+        font-size: 1.5em;
     }
 
     .fixed-text-bottom-el,
@@ -285,5 +461,45 @@
 
     .bookmark-container-animated p:last-child {
         font-size: 2em;
+    }
+
+    .reviews-container {}
+
+    .review {
+        width: 90%;
+        height: 80%;
+        border-radius: 4px;
+        display: flex;
+        flex-direction: column;
+        padding: 0.3em;
+        color: var(--third-color);
+
+        a {
+            color: var(--third-color);
+            opacity: 0.8;
+        }
+
+        .review-author {
+            display: flex;
+            flex-direction: row;
+            padding: 8px;
+            align-items: center;
+            margin-bottom: 1.4em;
+            justify-content: space-between;
+            border-bottom: 1.5px rgba(101, 101, 101, 0.353) solid;
+        }
+
+        .review-text {
+            font-size: 1.2em;
+        }
+
+        .review-author h3 {
+            font-size: 1.5em;
+        }
+
+        .review-author img {
+            width: 7.5em;
+
+        }
     }
 }

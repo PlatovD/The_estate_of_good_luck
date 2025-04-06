@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Усадьба Удачи</title>
+    <title>Усадьба Уюта</title>
     <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/animate.min.css' %}" />
@@ -13,10 +13,12 @@
 </head>
 
 <body>
-    <div class="main-container"></div>
-    {% include 'base_components/header.html' %}
-    {% block content %}{% endblock %}
-    {% include 'base_components/footer.html' %}
+    <div class="main-container">
+        {% include 'base_components/header.html' %}
+        {% block content %}{% endblock %}
+        {% include 'base_components/footer.html' %}
+    </div>
+    <div class="extra-windows">{% include 'base_components/book-menu.html' %}</div>
     <script src="{% static 'js/header.js' %}"></script>
     {% block js %}{% endblock %}
 </body>

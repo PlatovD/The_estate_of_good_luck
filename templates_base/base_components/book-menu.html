@@ -1,0 +1,26 @@
+{% load static %}
+
+<div class="book-block">
+    <div class="book-block-header">
+        <h2>Способы бронирования</h2>
+        <p id="book-menu-close-btn">&times;</p>
+    </div>
+    <div class="book-phone-number">+7 928 374-09-52</div>
+    <div class="book-block-grid">
+        <a href="" class="book-block-line flex-row">
+            <img src="{% static 'main/img/phone.png' %}" alt="">
+            <p>Позвонить на номер</p>
+        </a>
+        <div class="dull-line"></div>
+        <a href="https://api.whatsapp.com/send/?phone=79283740952&text&type=phone_number&app_absent=0"
+            class="book-block-line flex-row">
+            <img src="{% static 'main/img/whatsapp.png' %}" alt="">
+            <p>Написать в Whatsapp</p>
+        </a>
+        <div class="dull-line"></div>
+        <a href="" class="book-block-line flex-row">
+            <img src="{% static 'main/img/telegram.png' %}" alt="">
+            <p>Написать в Telegram</p>
+        </a>
+    </div>
+</div>

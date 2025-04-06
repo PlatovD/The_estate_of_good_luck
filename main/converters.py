@@ -1,5 +1,5 @@
 class RoomTypeConverter:
-    regex = 'standard|luxe'
+    regex = 'standard|half-luxe|luxe'
 
     def to_python(self, value):
         return value  
