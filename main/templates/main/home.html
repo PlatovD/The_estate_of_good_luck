@@ -8,6 +8,12 @@
 <div class="swiper-inozemcevo">
     <div class="swiper-wrapper">
         <div class="swiper-slide">
+            <img src="{% static 'main/img/mainslider/7.jpg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="{% static 'main/img/mainslider/8.jpg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
             <img src="{% static 'main/img/mainslider/4.jpg' %}" alt="">
         </div>
         <div class="swiper-slide">
@@ -18,10 +24,12 @@
         </div>
         <div class="swiper-slide">
             <img src="{% static 'main/img/mainslider/3.jpg' %}" alt="">
-        </div>
-
+        </div>  
         <div class="swiper-slide">
             <img src="{% static 'main/img/mainslider/1.jpg' %}" alt="">
+        </div>
+        <div class="swiper-slide">
+            <img src="{% static 'main/img/mainslider/6.jpg' %}" alt="">
         </div>
     </div>
     <div class="swiper-button-next"></div>
@@ -32,65 +40,13 @@
 <div class="content-wrapper">
     <h2>Номера</h2>
     <div class="animated-line"></div>
-    <div class="list-container">
-        {% for room in rooms %}
-        <div class="list-el-container">
-            <div class="swiper item-swiper">
-                <div class="fixed-text-top-el">
-                    <p>{{ room.name }}</p>
-                </div>
-
-
-                <div class="swiper-wrapper">
-                    {% for image in room.images.all %}
-                    <div class="swiper-slide">
-                        <a href="{% url 'main:rooms_detail' room.category room.id %}">
-                            <img src="{{ image.image.url }}" alt="{{ room.name }}">
-                        </a>
-                    </div>
-                    {% endfor %}
-                </div>
-                <div class="fixed-hover-text">
-                    <p>Подробнее</p>
-                </div>
-                <div class="fixed-text-bottom-el">
-                    <p>{{ room.price }} &#8381;</p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    {% include './components/rooms-list.html'%}
 </div>
 
 <div class="content-wrapper">
     <h2>Услуги</h2>
     <div class="animated-line"></div>
-    <div class="list-container">
-        {% for service in services %}
-        <div class="list-el-container">
-            <div class="swiper item-swiper">
-                <div class="fixed-text-top-el">
-                    <p>{{ service.name }}</p>
-                </div>
-                <div class="swiper-wrapper">
-                    {% for image in service.images.all %}
-                    <div class="swiper-slide">
-                        <a href="{% url 'main:services_detail' service.id %}">
-                            <img src="{{ image.image.url }}" alt="{{ service.name }}">
-                        </a>
-                    </div>
-                    {% endfor %}
-                </div>
-                <div class="fixed-hover-text">
-                    <p>Подробнее</p>
-                </div>
-                <div class="fixed-text-bottom-el">
-                    <p>{{ service.price }} &#8381;</p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    {% include './components/services-list.html'%}
 </div>
 
 <div class="content-wrapper">
@@ -122,6 +78,87 @@
     </div> -->
     <div class="swiper reviewSwiper">
         <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <div class="reviews-container">
+                    <div class="review not-center-review">
+                        <div class="review-author">
+                            <h3>Юлия Зайцева</h3>
+                            <img src="{% static 'main/img/5stars.png' %}" alt="">
+                        </div>
+                        <div class="review-text">
+                            Останавливались на 1 ночь с двумя детьми в двухкомнатном номере в конце апреля 24г. Отель
+                            очень понравился, все чисто и уютно. Есть общая кухня со всем необходимым. Номер так же был
+                            чистый, с хорошей мебелью, большой ванной комнатой. Вокруг отеля тихо, в пешей доступности
+                            кафе и магазины.
+                        </div>
+                        <a target="_blank"
+                            href="https://yandex.ru/maps/org/148281453059/reviews?reviews%5BpublicId%5D=yb60n22q3v2hvp6afux8gdrfg4&si=4zhjw283wrmdfww7zdwqzuywwm&utm_source=review">
+                            <div class="original-review">Посмотреть оригинал на <img
+                                    src="{% static 'main/img/yandex.png' %}" alt=""></div>
+                        </a>
+                    </div>
+
+                    <div class="review">
+                        <div class="review-author">
+                            <h3>Olga Khramtsova</h3>
+                            <img src="{% static 'main/img/5stars.png' %}" alt="">
+                        </div>
+                        <div class="review-text">
+                            Останавливась проездом из Тбилиси в Москву. Очень чисто, уютно! Приятно находиться в номере.
+                            Спасибо владельцамии администратору. Также благодарю за то, что гостевой дом дог-френдли:)
+                        </div>
+                        <a target="_blank"
+                            href="https://yandex.ru/maps/org/148281453059/reviews?reviews%5BpublicId%5D=aucypez0aturybmetz02gqgp0r&si=4zhjw283wrmdfww7zdwqzuywwm&utm_source=review">
+                            <div class="original-review">Посмотреть оригинал на <img
+                                    src="{% static 'main/img/yandex.png' %}" alt=""></div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="reviews-container">
+                    <div class="review not-center-review">
+                        <div class="review-author">
+                            <h3>Наталья К.</h3>
+                            <img src="{% static 'main/img/5stars.png' %}" alt="">
+                        </div>
+                        <div class="review-text">
+                            Отдыхала в марте 2025 года в этом уютном госревом доме. Номер очень чистый и просторный.
+                            Администратор приветливый все
+                            рассказал и обьяснил. Постельное белье новое, матрац очень удобный. Рядом есть магазины и
+                            очень удобно добираться в
+                            Пятигорск и Железноводск. Всем очень довольна. Рекомендую на все 100 процентов.
+                        </div>
+                        <a target="_blank"
+                            href="https://yandex.ru/maps/org/148281453059/reviews?reviews%5BpublicId%5D=grtxhu4r53vc5qeqfe4yq754rr&si=4zhjw283wrmdfww7zdwqzuywwm&utm_source=review">
+                            <div class="original-review">Посмотреть оригинал на <img
+                                    src="{% static 'main/img/yandex.png' %}" alt=""></div>
+                        </a>
+                    </div>
+
+                    <div class="review">
+                        <div class="review-author">
+                            <h3>Юлия Заберючинская</h3>
+                            <img src="{% static 'main/img/5stars.png' %}" alt="">
+                        </div>
+                        <div class="review-text">
+                            Минусы отсутствуют полностью!!! Отличное место, тихо, спокойно, уютно, чисто. Персонал
+                            просто супер. Огромное спасибо, что Вы есть! Попавши сюда хоть раз, никогда не захочется в
+                            другой дом. Уезжаю всегда с сожалением...
+                        </div>
+                        <a target="_blank"
+                            href="https://yandex.ru/maps/org/148281453059/reviews?reviews%5BpublicId%5D=dfxj9zyg5pxv7110y8zj7m68pr&si=4zhjw283wrmdfww7zdwqzuywwm&utm_source=review">
+                            <div class="original-review">Посмотреть оригинал на <img
+                                    src="{% static 'main/img/yandex.png' %}" alt=""></div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
             <div class="swiper-slide">
                 <div class="reviews-container">
 

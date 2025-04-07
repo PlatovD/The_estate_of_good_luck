@@ -19,7 +19,7 @@
             <ul>
                 <li class="footer-category">Номера</li>
                 <li><a href="{% url 'main:rooms' 'standard' %}">Стандарт</a></li>
-                <li><a href="{% url 'main:rooms' 'half-luxe' %}">Полулюкс</a></li>  
+                <li><a href="{% url 'main:rooms' 'half-luxe' %}">Полулюкс</a></li>
                 <li><a href="{% url 'main:rooms' 'luxe' %}">Люкс</a></li>
             </ul>
         </div>
@@ -27,7 +27,7 @@
         <div class="footer-table-item">
             <ul>
                 <li class="footer-category">Услуги</li>
-                {% for service in services %}
+                {% for service in services_indoor %}
                 <li><a href="{% url 'main:services_detail' service.id  %}">{{ service.name }}</a></li>
                 {% endfor %}
             </ul>

@@ -7,7 +7,7 @@ class HomeView(TemplateView):
     template_name = 'main/home.html'
     extra_context = {
         'rooms': Room.objects.prefetch_related('images').all(),
-        'services': Service.objects.prefetch_related('images').all(),
+        'services': Service.manager.not_special().prefetch_related('images').all(),
     }
 
 
@@ -15,6 +15,12 @@ class ServicesView(ListView):
     template_name = 'main/services.html'
     model = Service
     context_object_name = 'services'
+
+    def get_queryset(self):
+        if self.kwargs['service_type'] == 'indoors':
+            return Service.manager.not_special().prefetch_related('images').all()
+        elif self.kwargs['service_type'] == 'special':
+            return Service.manager.special().prefetch_related('images').all()
 
 
 class ServicesDetailView(DetailView):

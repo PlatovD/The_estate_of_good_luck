@@ -35,7 +35,13 @@
                         <a href="{% url 'main:rooms' 'luxe' %}">Люкс</a>
                     </div>
                 </div>
-                <a href="{% url 'main:services' %}">Услуги</a>
+                <div class="mobile-dropdown-trigger">
+                    <a href="{% url 'main:services' 'indoors' %}">Услуги</a>
+                    <div class="header-dropdown">
+                        <a href="{% url 'main:services' 'special' %}">Услуги внутри</a>
+                        <a href="">Специальные услуги</a>
+                    </div>
+                </div>
                 <a href="{% url 'main:info' %}">Информация</a>
                 <a href="{% url 'main:contacts' %}">Контакты</a>
             </div>
@@ -61,8 +67,16 @@
                 <a href="{% url 'main:rooms' 'luxe' %}" class="animate__animated animate__zoomIn">Люкс</a>
             </div>
         </div>
-        <div class="nav-item">
-            <a href="{% url 'main:services' %}">Услуги</a>
+
+        <div class="nav-item dropdown">
+            <a href="#" onclick="event.preventDefault()">Услуги</a>
+            <img src="{% static 'img/down-arrow.png' %}" alt="">
+            <div class="dropdown-content">
+                <a href="{% url 'main:services' 'indoors' %}" class="animate__animated animate__zoomIn">Услуги
+                    внутри</a>
+                <a href="{% url 'main:services' 'special' %}" class="animate__animated animate__zoomIn">Специальные
+                    услуги</a>
+            </div>
         </div>
         <div class="nav-item">
             <a href="{% url 'main:info' %}">Информация</a>

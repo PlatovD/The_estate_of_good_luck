@@ -9,34 +9,7 @@
 <div class="content-wrapper">
     <h2>Номера {{ title }}</h2>
     <div class="animated-line"></div>
-    <div class="list-container">
-        {% for room in rooms %}
-        <div class="list-el-container">
-            <div class="swiper item-swiper">
-                <div class="fixed-text-top-el">
-                    <p>{{ room.name }}</p>
-                </div>
-
-
-                <div class="swiper-wrapper">
-                    {% for image in room.images.all %}
-                    <div class="swiper-slide">
-                        <a href="{% url 'main:rooms_detail' room.category room.id %}">
-                            <img src="{{ image.image.url }}" alt="{{ room.name }}">
-                        </a>
-                    </div>
-                    {% endfor %}
-                </div>
-                <div class="fixed-hover-text">
-                    <p>Подробнее</p>
-                </div>
-                <div class="fixed-text-bottom-el">
-                    <p>{{ room.price }} &#8381;</p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    {% include './components/rooms-list.html'%}
 </div>
 {% endblock %}
 

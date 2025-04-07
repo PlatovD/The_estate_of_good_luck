@@ -9,32 +9,7 @@
 <div class="content-wrapper">
     <h2>Услуги</h2>
     <div class="animated-line"></div>
-    <div class="list-container">
-        {% for service in services %}
-        <div class="list-el-container">
-            <div class="swiper item-swiper">
-                <div class="fixed-text-top-el">
-                    <p>{{ service.name }}</p>
-                </div>
-                <div class="swiper-wrapper">
-                    {% for image in service.images.all %}
-                    <div class="swiper-slide">
-                        <a href="{% url 'main:services_detail' service.id %}">
-                            <img src="{{ image.image.url }}" alt="{{ service.name }}">
-                        </a>
-                    </div>
-                    {% endfor %}
-                </div>
-                <div class="fixed-hover-text">
-                    <p>Подробнее</p>
-                </div>
-                <div class="fixed-text-bottom-el">
-                    <p>{{ service.price }} &#8381;</p>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    {% include './components/services-list.html'%}
 </div>
 {% endblock %}
 

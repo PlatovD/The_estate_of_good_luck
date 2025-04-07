@@ -1,14 +1,12 @@
 function initSwipers() {
-  const swiperItems = new Swiper('.item-swiper', {
-    spaceBetween: 0,
-    speed: 700,
-    centeredSlides: true,
-    loop: true,
-    autoplay: {
-      pauseOnMouseEnter: true,
-      delay: 4500,
-      disableOnInteraction: false,
-    },
+  const swiperContainers = document.querySelectorAll('.item-swiper');
+
+  swiperContainers.forEach((container) => {
+    new Swiper(container, {
+      spaceBetween: 0,
+      speed: 700,
+      centeredSlides: true,
+    });
   });
 
   const swiperBigMain = new Swiper('.swiper-inozemcevo', {
@@ -18,7 +16,7 @@ function initSwipers() {
     centeredSlides: true,
     autoplay: {
       delay: 8500,
-      disableOnInteraction: false,  
+      disableOnInteraction: false,
     },
     pagination: {
       el: ".swiper-pagination",

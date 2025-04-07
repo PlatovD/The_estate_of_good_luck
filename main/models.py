@@ -12,6 +12,14 @@ def service_img_path(instance, filename):
     return os.path.join('service_images', str(instance.service.id), filename)
 
 
+class ServicesManager(models.Manager):
+    def special(self):
+        return self.filter(isSpecial=True)
+
+    def not_special(self):
+        return self.filter(isSpecial=False)
+
+
 class RoomCategory(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название")
 
@@ -48,6 +56,10 @@ class Service(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название услуги")
     description = models.TextField(verbose_name="Описание")
     price = models.IntegerField(verbose_name="Цена")
+    isSpecial = models.BooleanField(verbose_name="Статус", default=False)
+    preview = models.ImageField("Превью", upload_to="services_previews/", blank=True)
+    objects = models.Manager()
+    manager = ServicesManager()
 
     class Meta:
         verbose_name = "Услуга"
