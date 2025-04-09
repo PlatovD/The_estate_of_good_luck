@@ -40,6 +40,8 @@ class Room(models.Model):
                                  verbose_name="Категория")
     preview = models.ImageField("Превью", upload_to="room_previews/")
 
+    objects = models.Manager()
+
     class Meta:
         verbose_name = "Номер"
         verbose_name_plural = "Номера"
@@ -57,7 +59,7 @@ class Service(models.Model):
     description = models.TextField(verbose_name="Описание")
     price = models.IntegerField(verbose_name="Цена")
     isSpecial = models.BooleanField(verbose_name="Статус", default=False)
-    preview = models.ImageField("Превью", upload_to="services_previews/", blank=True)
+    preview = models.ImageField("Превью", upload_to="services_previews/", blank=False)
     objects = models.Manager()
     manager = ServicesManager()
 

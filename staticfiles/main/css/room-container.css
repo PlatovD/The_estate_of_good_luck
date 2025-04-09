@@ -1,0 +1,85 @@
+.room-wrapper {
+    .room-on-img {
+        position: absolute;
+        font-family: 'Marck-Script';
+        font-size: 2em;
+        bottom: 8px;
+        right: 10px;
+        width: auto;
+        color: #fff;
+        text-align: right;
+
+    }
+
+    .room-on-img-price {
+        position: absolute;
+        font-family: 'Marck-Script';
+        font-size: 2em;
+        top: 8px;
+        left: 10px;
+        width: auto;
+        text-align: left;
+        color: #fff;
+    }
+
+    .room-descr {
+        color: var(--third-color);
+        font-size: 1.3em;
+
+        .room-descr-price {
+            font-size: 1.15em;
+            color: rgb(37, 134, 58);
+        }
+    }
+
+    .room-image {
+        position: relative;
+        width: 100%;
+        border-radius: 7px;
+        overflow: hidden;
+        opacity: 0.9;
+    }
+}
+
+.room-wrapper:hover {
+    transform: scale(1.01);
+    transition-duration: 250ms;
+}
+
+@media (max-width: 800px) {
+    .room-wrapper {
+        .room-on-img {
+            position: absolute;
+            font-family: 'Marck-Script';
+            font-size: 1.3em;
+            bottom: 8px;
+            right: 10px;
+            width: auto;
+            color: #fff;
+            text-align: right;
+        }
+
+        .room-on-img-price {
+            position: absolute;
+            font-family: 'Marck-Script';
+            font-size: 1.3em;
+            top: 8px;
+            left: 10px;
+            width: auto;
+            text-align: left;
+            color: #fff;
+        }
+
+        .room-descr {
+            color: var(--third-color);
+            font-size: 1.0em;
+
+            .room-descr-price {
+                font-size: 1.1em;
+            }
+        }
+
+
+    }
+
+}

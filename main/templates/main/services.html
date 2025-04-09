@@ -7,9 +7,14 @@
 
 {% block content %}
 <div class="content-wrapper">
-    <h2>Услуги</h2>
+    <h2 id="services-indoors">Стандартные</h2>
     <div class="animated-line"></div>
-    {% include './components/services-list.html'%}
+    {% include './components/services-list.html' with services=indoor %}
+</div>
+<div class="content-wrapper">
+    <h2 id="services-special">Специальные</h2>
+    <div class="animated-line"></div>
+    {% include './components/services-list.html' with services=special %}
 </div>
 {% endblock %}
 

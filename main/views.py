@@ -11,16 +11,26 @@ class HomeView(TemplateView):
     }
 
 
-class ServicesView(ListView):
+class ServicesView(TemplateView):
     template_name = 'main/services.html'
-    model = Service
-    context_object_name = 'services'
 
-    def get_queryset(self):
-        if self.kwargs['service_type'] == 'indoors':
-            return Service.manager.not_special().prefetch_related('images').all()
-        elif self.kwargs['service_type'] == 'special':
-            return Service.manager.special().prefetch_related('images').all()
+    def get_context_data(self, **kwargs):
+        super().get_context_data(**kwargs)
+        queryset = Service.objects.all()
+
+        services = {
+            'indoor': [],
+            'special': [],
+        }
+
+        for serv in queryset:
+            if serv.isSpecial:
+                services['special'] += [serv]
+            else:
+                services['indoor'] += [serv]
+
+        kwargs.update(services)
+        return kwargs
 
 
 class ServicesDetailView(DetailView):
@@ -41,20 +51,25 @@ class ContactsView(TemplateView):
     template_name = 'main/contacts.html'
 
 
-class RoomsView(ListView):
+class RoomsView(TemplateView):
     template_name = 'main/rooms.html'
-    model = Room
-    context_object_name = 'rooms'
 
-    def get_queryset(self):
-        name = self.kwargs['room_type']
-        return Room.objects.filter(category__name=name).prefetch_related('images').all()
-
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'люкс' if self.kwargs['room_type'] == 'luxe' else 'стандарт' if self.kwargs[
-                                                                                               'room_type'] == 'standard' else 'полулюкс'
-        return context
+    def get_context_data(self, **kwargs):
+        super().get_context_data(**kwargs)
+        rooms = {
+            'standard': [],
+            'half_luxe': [],
+            'luxe': [],
+        }
+        for room in Room.objects.all():
+            if room.category.name == 'standard':
+                rooms['standard'] += [room]
+            elif room.category.name == 'half-luxe':
+                rooms['half_luxe'] += [room]
+            else:
+                rooms['luxe'] += [room]
+        kwargs.update(rooms)
+        return kwargs
 
 
 class RoomsDetailView(DetailView):

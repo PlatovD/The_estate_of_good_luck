@@ -1,6 +1,13 @@
 <div class="room-wrapper">
-    <div class="room-image"></div>
-    <div class="room descr">
-        <p>Room</p>
-    </div>
+    <a href="{% url 'main:rooms_detail' room.category room.id %}">
+        <div class="room-image">
+            <div class="room-on-img-price">№{{room.id}}</div>
+            <img src="{{ room.preview.url }}" alt="{{ room.name }}">
+            <div class="room-on-img">{{room.category}}</div>
+        </div>
+        <div class="room-descr">
+            <p class="room-descr-price">{{room.price}}₽</p>
+            <p>{{room.description}}</p>
+        </div>
+    </a>
 </div>

@@ -18,18 +18,17 @@
         <div class="footer-table-item">
             <ul>
                 <li class="footer-category">Номера</li>
-                <li><a href="{% url 'main:rooms' 'standard' %}">Стандарт</a></li>
-                <li><a href="{% url 'main:rooms' 'half-luxe' %}">Полулюкс</a></li>
-                <li><a href="{% url 'main:rooms' 'luxe' %}">Люкс</a></li>
+                <li><a href="{% url 'main:rooms' 'standard' %}#rooms-standard">Стандарт</a></li>
+                <li><a href="{% url 'main:rooms' 'standard' %}#rooms-half-luxe">Полулюкс</a></li>
+                <li><a href="{% url 'main:rooms' 'standard' %}#rooms-luxe">Люкс</a></li>
             </ul>
         </div>
 
         <div class="footer-table-item">
             <ul>
                 <li class="footer-category">Услуги</li>
-                {% for service in services_indoor %}
-                <li><a href="{% url 'main:services_detail' service.id  %}">{{ service.name }}</a></li>
-                {% endfor %}
+                <li><a href="{% url 'main:services' 'indoors' %}#services-indoors">Стандрартные</a></li>
+                <li><a href="{% url 'main:services' 'special' %}#services-special">Специальные</a></li>
             </ul>
         </div>
 
@@ -38,7 +37,6 @@
                 <li class="footer-category">О нас</li>
                 <li><a href="{% url 'main:info' %}">Информация</a></li>
                 <li><a href="{% url 'main:contacts' %}">Контакты</a></li>
-                <li><a href="">Q&A</a></li>
                 <li><a href="">Пользовательское соглашение</a></li>
             </ul>
         </div>

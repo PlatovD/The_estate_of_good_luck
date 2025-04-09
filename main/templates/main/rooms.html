@@ -7,9 +7,19 @@
 
 {% block content %}
 <div class="content-wrapper">
-    <h2>Номера {{ title }}</h2>
+    <h2 id="rooms-standard">Стандарт</h2>
     <div class="animated-line"></div>
-    {% include './components/rooms-list.html'%}
+    {% include './components/rooms-list.html' with rooms=standard %}
+</div>
+<div class="content-wrapper">
+    <h2 id="rooms-half-luxe">Полулюкс</h2>
+    <div class="animated-line"></div>
+    {% include './components/rooms-list.html' with rooms=half_luxe %}
+</div>
+<div class="content-wrapper">
+    <h2 id="rooms-luxe">Люкс</h2>
+    <div class="animated-line"></div>
+    {% include './components/rooms-list.html' with rooms=luxe %}
 </div>
 {% endblock %}
 

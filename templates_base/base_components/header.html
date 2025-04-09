@@ -30,15 +30,15 @@
                 <div class="mobile-dropdown-trigger">
                     <a href="">Номера</a>
                     <div class="header-dropdown">
-                        <a href="{% url 'main:rooms' 'standard' %}">Стандарт</a>
-                        <a href="{% url 'main:rooms' 'half-luxe' %}">Полулюкс</a>
-                        <a href="{% url 'main:rooms' 'luxe' %}">Люкс</a>
+                        <a href="{% url 'main:rooms' 'standard' %}#rooms-standard">Стандарт</a>
+                        <a href="{% url 'main:rooms' 'half-luxe' %}#rooms-half-luxe">Полулюкс</a>
+                        <a href="{% url 'main:rooms' 'luxe' %}#rooms-luxe" #:~:text=Люкс>Люкс</a>
                     </div>
                 </div>
                 <div class="mobile-dropdown-trigger">
-                    <a href="{% url 'main:services' 'indoors' %}">Услуги</a>
+                    <a href="{% url 'main:services' 'indoors' %}#services-indoors">Услуги</a>
                     <div class="header-dropdown">
-                        <a href="{% url 'main:services' 'special' %}">Услуги внутри</a>
+                        <a href="{% url 'main:services' 'indoors' %}#services-special">Услуги внутри</a>
                         <a href="">Специальные услуги</a>
                     </div>
                 </div>
@@ -62,9 +62,11 @@
             <a href="#" onclick="event.preventDefault()">Номера</a>
             <img src="{% static 'img/down-arrow.png' %}" alt="">
             <div class="dropdown-content">
-                <a href="{% url 'main:rooms' 'standard' %}" class="animate__animated animate__zoomIn">Стандарт</a>
-                <a href="{% url 'main:rooms' 'half-luxe' %}" class="animate__animated animate__zoomIn">Полулюкс</a>
-                <a href="{% url 'main:rooms' 'luxe' %}" class="animate__animated animate__zoomIn">Люкс</a>
+                <a href="{% url 'main:rooms' 'standard' %}#rooms-standard"
+                    class="animate__animated animate__zoomIn">Стандарт</a>
+                <a href="{% url 'main:rooms' 'half-luxe' %}#rooms-half-luxe"
+                    class="animate__animated animate__zoomIn">Полулюкс</a>
+                <a href="{% url 'main:rooms' 'luxe' %}#rooms-luxe" class="animate__animated animate__zoomIn">Люкс</a>
             </div>
         </div>
 
@@ -72,9 +74,11 @@
             <a href="#" onclick="event.preventDefault()">Услуги</a>
             <img src="{% static 'img/down-arrow.png' %}" alt="">
             <div class="dropdown-content">
-                <a href="{% url 'main:services' 'indoors' %}" class="animate__animated animate__zoomIn">Услуги
+                <a href="{% url 'main:services' 'indoors' %}#services-indoors"
+                    class="animate__animated animate__zoomIn">Услуги
                     внутри</a>
-                <a href="{% url 'main:services' 'special' %}" class="animate__animated animate__zoomIn">Специальные
+                <a href="{% url 'main:services' 'indoors' %}#services-special"
+                    class="animate__animated animate__zoomIn">Специальные
                     услуги</a>
             </div>
         </div>

@@ -1,0 +1,17 @@
+<div class="room-wrapper">
+    <a href="{% url 'main:services_detail' service.id %}">
+        <div class="room-image">
+            <div class="room-on-img-price">{{service.name}}</div>
+            <img src="{{ service.preview.url }}" alt="{{ service.name }}">
+            {% if service.isSpecial %}
+            <div class="room-on-img">Специальная</div>
+            {% else %}
+            <div class="room-on-img">Стандартная</div>
+            {% endif %}
+        </div>
+        <div class="room-descr">
+            <p class="room-descr-price">{{service.price}}₽</p>
+            <p>{{service.description}}</p>
+        </div>
+    </a>
+</div>
