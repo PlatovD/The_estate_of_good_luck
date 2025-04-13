@@ -17,6 +17,10 @@
     width: 100%;
 }
 
+.margin-for-grid {
+    margin-inline: 0.2em;
+}
+
 .swiper-inozemcevo {
     z-index: 0;
     position: relative;
@@ -256,6 +260,9 @@
 }
 
 @media (max-width: 800px) {
+    footer {
+        display: none;
+    }
 
     .list-container-grid {
         padding: 0;
@@ -265,6 +272,7 @@
 
     .swiper-inozemcevo {
         overflow: hidden;
+        width: 100%;
     }
 
     .item-swiper {
@@ -360,9 +368,8 @@
 
     .list-container-grid {
         grid-template-columns: repeat(2, 1fr);
-        flex-direction: column;
-        gap: 0.4em;
         margin-top: 0.4em;
+        gap: 0.3em;
     }
 
     .content-wrapper h2 {

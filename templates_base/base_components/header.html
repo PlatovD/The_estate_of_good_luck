@@ -20,32 +20,9 @@
             </a>
         </div>
 
+        {% include './header-burger-mobile.html' %}
+        <div id="progress-line-mobile"></div>
 
-
-        <div class="mobile-burger">
-            <div class="burger">
-                <p>&#9776;</p>
-            </div>
-            <div class="mobile-burger-dropdown-nav">
-                <div class="mobile-dropdown-trigger">
-                    <a href="">Номера</a>
-                    <div class="header-dropdown">
-                        <a href="{% url 'main:rooms' 'standard' %}#rooms-standard">Стандарт</a>
-                        <a href="{% url 'main:rooms' 'half-luxe' %}#rooms-half-luxe">Полулюкс</a>
-                        <a href="{% url 'main:rooms' 'luxe' %}#rooms-luxe" #:~:text=Люкс>Люкс</a>
-                    </div>
-                </div>
-                <div class="mobile-dropdown-trigger">
-                    <a href="{% url 'main:services' 'indoors' %}#services-indoors">Услуги</a>
-                    <div class="header-dropdown">
-                        <a href="{% url 'main:services' 'indoors' %}#services-special">Услуги внутри</a>
-                        <a href="">Специальные услуги</a>
-                    </div>
-                </div>
-                <a href="{% url 'main:info' %}">Информация</a>
-                <a href="{% url 'main:contacts' %}">Контакты</a>
-            </div>
-        </div>
 
         <div id="header-phone-number">
             <div class="flex-row">
@@ -57,6 +34,8 @@
 
         </div>
     </div>
+
+
     <div class="nav">
         <div class="nav-item dropdown">
             <a href="#" onclick="event.preventDefault()">Номера</a>
@@ -64,8 +43,10 @@
             <div class="dropdown-content">
                 <a href="{% url 'main:rooms' 'standard' %}#rooms-standard"
                     class="animate__animated animate__zoomIn">Стандарт</a>
+                <div class="dull-line"></div>
                 <a href="{% url 'main:rooms' 'half-luxe' %}#rooms-half-luxe"
                     class="animate__animated animate__zoomIn">Полулюкс</a>
+                <div class="dull-line"></div>
                 <a href="{% url 'main:rooms' 'luxe' %}#rooms-luxe" class="animate__animated animate__zoomIn">Люкс</a>
             </div>
         </div>
@@ -77,6 +58,7 @@
                 <a href="{% url 'main:services' 'indoors' %}#services-indoors"
                     class="animate__animated animate__zoomIn">Услуги
                     внутри</a>
+                <div class="dull-line"></div>
                 <a href="{% url 'main:services' 'indoors' %}#services-special"
                     class="animate__animated animate__zoomIn">Специальные
                     услуги</a>
@@ -92,4 +74,6 @@
             <a class="btn-a" id="book-header">Забронировать</a>
         </div>
     </div>
+
+
 </header>

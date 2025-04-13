@@ -1,0 +1,32 @@
+<div class="mobile-burger">
+    <div class="burger">
+        <p>&#9776;</p>
+    </div>
+    <div class="mobile-burger-dropdown-nav">
+        <div class="mobile-dropdown-trigger">
+            <a class="burger-a" href="">Номера</a>
+            <div class="header-dropdown">
+                <a href="{% url 'main:rooms' 'standard' %}#rooms-standard">Стандарт</a>
+                <a href="{% url 'main:rooms' 'half-luxe' %}#rooms-half-luxe">Полулюкс</a>
+                <a href="{% url 'main:rooms' 'luxe' %}#rooms-luxe" #:~:text=Люкс>Люкс</a>
+            </div>
+            <div class="dull-line"></div>
+        </div>
+        <div class="mobile-dropdown-trigger">
+            <a class="burger-a" href="{% url 'main:services' 'indoors' %}#services-indoors">Услуги</a>
+            <div class="header-dropdown">
+                <a href="{% url 'main:services' 'indoors' %}#services-special">Услуги внутри</a>
+                <a href="">Специальные услуги</a>
+            </div>
+            <div class="dull-line"></div>
+        </div>
+        <div class="mobile-dropdown-nottrigger">
+            <a class="burger-a" href="{% url 'main:info' %}">Информация</a>
+            <div class="dull-line"></div>
+        </div>
+        <div class="mobile-dropdown-nottrigger">
+            <a class="burger-a" href="{% url 'main:contacts' %}">Контакты</a>
+        </div>
+
+    </div>
+</div>

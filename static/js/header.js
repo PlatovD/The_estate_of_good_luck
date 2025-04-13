@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector(".burger").addEventListener('click', () => {
         const navMobile = document.querySelector(".mobile-burger-dropdown-nav");
-        if (navMobile.style.left === '100%') {
-            navMobile.style.left = '0';
+        if (navMobile.style.left !== '60%') {
+            navMobile.style.left = '60%';
         } else {
             navMobile.style.left = '100%';
         }
@@ -48,6 +48,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector("#book-header").addEventListener('click', e => {
         blockWindow = document.querySelector(".book-block");
+        if (blockWindow.style.display === 'flex') {
+            closeBookingDialog();
+            return;
+        }
         mainContainer = document.querySelector(".main-container");
         mainContainer.classList.toggle("main-container-after");
         blockWindow.style.display = "flex";
@@ -62,11 +66,16 @@ window.addEventListener('scroll', function () {
     const nav = document.querySelector('.nav');
     if (window.scrollY > 110) {
         nav.classList.add('sticky');
-        nav.style.opacity = '0.92';
     } else {
         nav.classList.remove('sticky');
-        nav.style.opacity = '1';
     }
+});
+
+window.addEventListener('scroll', function () {
+    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = window.scrollY;
+    const progress = scrollHeight > 0 ? (scrolled / scrollHeight) * 100 : 0;
+    document.querySelector('#progress-line-mobile').style.width = Math.min(progress, 100) + '%';
 });
 
 

@@ -1,12 +1,13 @@
-<div class="list-container-grid">
-    {% for room in rooms %}
+<div class="margin-for-grid">
+    <div class="list-container-grid">
+        {% for room in rooms %}
 
-    {% include './room-container.html' %}
-    <!-- <div class="swiper-slide">
+        {% include './room-container.html' %}
+        <!-- <div class="swiper-slide">
                     <a href="{% url 'main:rooms_detail' room.category room.id %}">
                         <img src="{{ image.image.url }}" alt="{{ room.name }}">
                     </a>
                 </div> -->
-
-    {% endfor %}
+        {% endfor %}
+    </div>
 </div>

@@ -1,9 +1,11 @@
 .reviewSwiper {
-    height: 410px;
+    height: 510px;
+    width: 100%;
+    overflow: hidden;
 
     .swiper-pagination-bullet {
-        background: #fff;
-        opacity: 0.4;
+        background: #83695199;
+        opacity: 0.5;
         border-radius: 0;
         width: 20px;
         height: 20px;
@@ -82,6 +84,7 @@
     .reviewSwiper {
         height: 320px;
         overflow: hidden;
+        font-size: 0.93em;
 
         .swiper-pagination-bullet {
             background: var(--text-second-color);
@@ -135,11 +138,11 @@
             }
 
             .review-author h3 {
-                font-size: 1.5em;
+                font-size: 1.3em;
             }
 
             .review-author img {
-                width: 7.5em;
+                width: 7em;
 
             }
         }
