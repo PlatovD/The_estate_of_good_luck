@@ -34,8 +34,14 @@ class ServicesView(TemplateView):
 
 
 class ServicesDetailView(DetailView):
-    template_name = 'main/services.detail'
-    pk_url_kwarg = None
+    template_name = 'main/services-detail.html'
+    model = Service
+    context_object_name = 'service'
+    pk_url_kwarg = 'number'
+
+    def get_queryset(self):
+        queryset = super().get_queryset().prefetch_related('images')
+        return queryset
 
 
 class PricesView(ListView):
@@ -80,7 +86,7 @@ class RoomsDetailView(DetailView):
 
     def get_queryset(self):
         queryset = super().get_queryset().prefetch_related('images', 'convenience')
-        return queryset.filter(category__name=self.kwargs['room_type'])
+        return queryset
 
     def get_object(self, queryset=None):
         return super().get_object(queryset)

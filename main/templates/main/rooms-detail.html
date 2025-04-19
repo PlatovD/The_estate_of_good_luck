@@ -12,9 +12,12 @@
         <div class="swiper swiperRoomInfo">
             <div class="swiper-wrapper">
                 {% for image in room.images.all %}
-                <div class="swiper-slide" data-src="{{ image.image.url }}">
+                <div class="swiper-slide">
                     <div class="swiper-zoom-container">
-                        <img src="{{ image.image.url }}" />
+                        <a class="fslightbox-swiper" href="{{ image.image.url }}" data-fslightbox="room-gallery"
+                            data-type="image">
+                            <img src="{{ image.image.url }}" />
+                        </a>
                     </div>
                 </div>
                 {% endfor %}
@@ -32,7 +35,7 @@
             <div class="roominfo-price">
                 <span>{{ room.price }} ₽/ день</span>
             </div>
-            <div class="roominfo-convenience-list">
+            <div class="roominfo-convenience-grid">
                 {% for convenience in room.convenience.all %}
                 <div class="roominfo-convenience-el">
                     <div class="flex-row">
@@ -52,6 +55,7 @@
 
 {% block js %}
 <script src="{% static 'main/js/home.js' %}"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="{% static 'node_modules/swiper/swiper-bundle.min.js' %}"></script>
 <script src="{% static 'main/js/room_detail.js' %}"></script>
+<script src="{% static 'node_modules/fslightbox/index.js' %}"></script>
 {% endblock %}

@@ -1,1 +1,48 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'main/css/room-detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+    <div class="roominfo-grid">
+        <div class="swiper swiperRoomInfo">
+            <div class="swiper-wrapper">
+                {% for image in serivce.images.all %}
+                <div class="swiper-slide">
+                    <div class="swiper-zoom-container">
+                        <a class="fslightbox-swiper" href="{{ image.image.url }}" data-fslightbox="room-gallery"
+                            data-type="image">
+                            <img src="{{ image.image.url }}" />
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swipper-fullscreen"><img src="{% static 'main/img/full-screen.png' %}" alt=""></div>
+        </div>
+
+        <div class="roominfo-maininfo">
+            <h3>{{ service.name }}</h3>
+            <div class="dull-line"></div>
+            <p>{{ service.description }}</p>
+            <div class="roominfo-price">
+                <span>{{ service.price }} ₽/ день</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'main/js/home.js' %}"></script>
+<script src="{% static 'node_modules/swiper/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'main/js/room_detail.js' %}"></script>
+<script src="{% static 'node_modules/fslightbox/index.js' %}"></script>
+{% endblock %}

@@ -20,25 +20,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelector(".burger").addEventListener('click', () => {
         const navMobile = document.querySelector(".mobile-burger-dropdown-nav");
-        if (navMobile.style.left !== '60%') {
-            navMobile.style.left = '60%';
+        if (navMobile.style.left !== '55%') {
+            navMobile.style.left = '55%';
         } else {
             navMobile.style.left = '100%';
         }
     })
 
     document.querySelectorAll(".mobile-dropdown-trigger").forEach(el => {
-        el.addEventListener('click', e => {
-            e.preventDefault();
-            let dropdown = el.querySelector('.header-dropdown');
-            if (dropdown.style.display === "none" || dropdown.style.display == "") {
-                dropdown.style.display = "flex";
+        const trigger = el.querySelector('.burger-a');
+        const dropdown = el.querySelector('.header-dropdown');
 
+        dropdown.style.display = "none";
+
+        trigger.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (dropdown.style.display === "none" || dropdown.style.display === "") {
+                dropdown.style.display = "flex";
+                trigger.style.marginBottom = "0.5em;";
             } else {
                 dropdown.style.display = "none";
+                trigger.style.marginBottom = "0;";
             }
-        })
-    })
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!el.contains(e.target)) {
+                dropdown.style.display = "none";
+            }
+        });
+    });
 
 
 
@@ -46,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
         closeBookingDialog();
     })
 
-    document.querySelector("#book-header").addEventListener('click', e => {
+    document.querySelectorAll(".book-header").forEach(el => el.addEventListener('click', e => {
         blockWindow = document.querySelector(".book-block");
         if (blockWindow.style.display === 'flex') {
             closeBookingDialog();
@@ -55,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
         mainContainer = document.querySelector(".main-container");
         mainContainer.classList.toggle("main-container-after");
         blockWindow.style.display = "flex";
-    })
+    }))
 
 });
 
@@ -64,7 +77,7 @@ window.addEventListener('scroll', function () {
         return;
     }
     const nav = document.querySelector('.nav');
-    if (window.scrollY > 110) {
+    if (window.scrollY > 117) {
         nav.classList.add('sticky');
     } else {
         nav.classList.remove('sticky');

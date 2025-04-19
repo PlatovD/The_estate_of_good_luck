@@ -9,10 +9,17 @@ const swiper = new Swiper(".swiperRoomInfo", {
     },
     loop: true,
     autoplay: {
-        delay: 4500,
+        delay: 6500,
         disableOnInteraction: false,
-        speed: 5000,
         pauseOnMouseEnter: true,
     },
 
 });
+
+function fullScreenGalery() {
+    document.querySelector(".swipper-fullscreen").addEventListener('click', e => {
+        fsLightbox.open();
+    })
+}
+
+fullScreenGalery();

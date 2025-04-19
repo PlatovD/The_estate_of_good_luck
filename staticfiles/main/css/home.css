@@ -18,7 +18,7 @@
 }
 
 .margin-for-grid {
-    margin-inline: 0.2em;
+    margin: 0.5em;
 }
 
 .swiper-inozemcevo {
@@ -168,7 +168,6 @@
 
 .list-container-grid {
     width: 100%;
-    padding: 1em;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.4em;
@@ -220,34 +219,6 @@
     height: 300px;
 }
 
-.home-guest-house-description {
-    color: var(--main-color);
-}
-
-.home-guest-house-description p {
-    font-size: 1.8em;
-}
-
-.bookmark-container-animated {
-    flex-direction: row;
-    justify-content: start;
-    padding: 1.5em 0.4em;
-    color: var(--text-second-color);
-    border-bottom: 1px var(--third-color) solid;
-    margin: 0.2em;
-    transform: translateX(-100%);
-}
-
-.bookmark-container-animated p:last-child {
-    font-family: 'Marck-Script', serif;
-    font-size: 2.6em;
-    margin: auto;
-}
-
-.animate-bookmark {
-    animation: fillBookmark 1s forwards;
-}
-
 .another-reviews {
     display: flex;
     flex-direction: row;
@@ -260,10 +231,6 @@
 }
 
 @media (max-width: 800px) {
-    footer {
-        display: none;
-    }
-
     .list-container-grid {
         padding: 0;
         width: 100%;
