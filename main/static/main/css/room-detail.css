@@ -1,8 +1,102 @@
-.swiper {
-    width: 300px;
-    height: 300px;
+.swiperRoomInfo {
+    width: 65%;
+    overflow: hidden;
+    user-select: none;
+    border-radius: 5px;
+
+    .swiper-slide img {
+        object-position: center;
+        border-radius: 5px;
+    }
+
+    .swiper-button-next {
+        color: #fff;
+    }
+
+    .swiper-button-prev {
+        color: #fff;
+    }
+
+    .swiper-pagination-bullet {
+        background: #fff;
+        opacity: 0.4;
+        width: 10px;
+        height: 10px;
+        border-radius: 0px;
+    }
+
+    .swiper-pagination-bullet-active {
+        background: #fff;
+        opacity: 1;
+    }
+
+    .swiper-pagination {
+        position: absolute;
+        top: 1em;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .swipper-fullscreen {
+        position: absolute;
+        bottom: 0.2em;
+        right: 0.6em;
+        z-index: 1;
+        width: 1.5em;
+        cursor: pointer;
+    }
 }
 
 .swiper-slide {
     overflow: hidden;
+}
+
+.roominfo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    .roominfo-maininfo {
+        color: var(--text-second-color);
+        padding: 0em 0.5em;
+
+        h3 {
+            font-size: 2.2em;
+            text-align: center;
+        }
+
+        .dull-line {
+            height: 1px;
+            background-color: rgba(0, 0, 0, 0.325);
+            width: 70%;
+            margin: auto;
+        }
+
+        p {
+            padding-top: 1em;
+            font-size: 1.3em;
+        }
+
+        .roominfo-price {
+            padding-top: 0.5em;
+
+            span {
+                font-size: 2.2em;
+                color: green;
+            }
+        }
+
+        .roominfo-convenience-list {
+            padding-top: 3em;
+            .flex-row {
+                img {
+                    width: 2.5em;
+                }
+            }
+        }
+
+    }
 }

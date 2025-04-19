@@ -11,7 +11,7 @@
         </div>
         <div class="room-descr">
             <p class="room-descr-price">{{service.price}}₽</p>
-            <p>{{service.description}}</p>
+            <p>{{ service.description|truncatewords:8 }}</p>
         </div>
     </a>
 </div>

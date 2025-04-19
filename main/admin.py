@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Room, RoomCategory, RoomImage, Service, ServiceImage
+
+from .models import Room, RoomCategory, RoomImage, Service, ServiceImage, RoomConvenience
 
 
 @admin.register(Room)
@@ -22,6 +23,12 @@ class ServiceAdmin(admin.ModelAdmin):
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)
     list_display_links = ('name',)
+
+
+@admin.register(RoomConvenience)
+class RoomConvenienceAdmin(admin.ModelAdmin):
+    list_display = ('pk', 'name',)
+    list_display_links = ('pk', 'name',)
 
 
 admin.site.register(RoomImage)

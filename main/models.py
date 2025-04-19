@@ -12,6 +12,10 @@ def service_img_path(instance, filename):
     return os.path.join('service_images', str(instance.service.id), filename)
 
 
+def room_convenience_img_path(instance, filename):
+    return os.path.join('room_convenience_icons', filename)
+
+
 class ServicesManager(models.Manager):
     def special(self):
         return self.filter(isSpecial=True)
@@ -84,3 +88,14 @@ class RoomImage(models.Model):
     class Meta:
         verbose_name = "Фото-хранилище номера"
         verbose_name_plural = "Фото-хранилище номера"
+
+
+class RoomConvenience(models.Model):
+    name = models.CharField(max_length=30, verbose_name="Название удобства")
+    image = models.ImageField("Иконка удобства", upload_to=room_convenience_img_path)
+    rooms = models.ManyToManyField(Room, related_name="convenience")
+    price = models.PositiveIntegerField(blank=True, default=0)
+
+    class Meta:
+        verbose_name = "Удобства"
+        verbose_name_plural = verbose_name

@@ -75,5 +75,12 @@ class RoomsView(TemplateView):
 class RoomsDetailView(DetailView):
     template_name = 'main/rooms-detail.html'
     model = Room
-    slug_url_kwarg = 'number'
-    slug_field = 'id'
+    context_object_name = 'room'
+    pk_url_kwarg = 'number'
+
+    def get_queryset(self):
+        queryset = super().get_queryset().prefetch_related('images', 'convenience')
+        return queryset.filter(category__name=self.kwargs['room_type'])
+
+    def get_object(self, queryset=None):
+        return super().get_object(queryset)

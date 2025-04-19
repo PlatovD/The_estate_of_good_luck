@@ -77,7 +77,7 @@ window.addEventListener('scroll', function () {
         return;
     }
     const nav = document.querySelector('.nav');
-    if (window.scrollY > 110) {
+    if (window.scrollY > 118) {
         nav.classList.add('sticky');
     } else {
         nav.classList.remove('sticky');

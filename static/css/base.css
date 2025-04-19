@@ -47,6 +47,7 @@
     --text-second-color: #836951;
     --third-color: #523d30;
     --body-color: #efece8;
+    --dropdowns-color: #ebdac3;
 }
 
 ::-webkit-scrollbar {
@@ -102,10 +103,12 @@ a {
     height: auto;
     border-radius: 10px;
     padding: 5px;
+    padding-top: 0px;
     color: var(--third-color);
 
     .book-block-header {
-        display: flex;
+        display: grid;
+        grid-template-columns: 0.1fr 1fr 0.1fr;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
@@ -284,7 +287,6 @@ header .nav {
     display: none;
     position: absolute;
     left: 0;
-    background-color: white;
     box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.1);
     min-width: 100%;
     top: calc(100%);
@@ -539,7 +541,7 @@ footer {
         top: 100%;
         flex-direction: column;
         justify-content: space-around;
-        background-color: var(--body-color);
+        background-color: var(--dropdowns-color);
         overflow: hidden;
         transition: left 0.3s ease;
         font-size: 1.085em;
@@ -583,6 +585,7 @@ footer {
         a span {
             margin-right: 3px;
         }
+
         a {
             margin: 2px 0;
         }
@@ -665,6 +668,23 @@ footer {
             background-color: rgba(80, 80, 80, 0.767);
             margin: auto;
             height: 1px;
+        }
+    }
+
+    footer {
+        font-size: 1em;
+
+        .footer-table {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .footer-table-item {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .footer-table-item:last-child {
+            grid-column: 1 / -1;
         }
     }
 }

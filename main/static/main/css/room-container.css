@@ -23,12 +23,17 @@
     }
 
     .room-descr {
-        color: var(--third-color);
+        color: #844c1e;
         font-size: 1.3em;
 
         .room-descr-price {
             font-size: 1.15em;
             color: rgb(37, 134, 58);
+            /* color: #643a17; */
+        }
+
+        p {
+            font-size: 0.85em;
         }
     }
 

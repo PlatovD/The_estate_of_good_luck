@@ -7,57 +7,46 @@
 {% endblock %}
 
 {% block content %}
-<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper mySwiper">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-                <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+<div class="content-wrapper">
+    <div class="roominfo-grid">
+        <div class="swiper swiperRoomInfo">
+            <div class="swiper-wrapper">
+                {% for image in room.images.all %}
+                <div class="swiper-slide" data-src="{{ image.image.url }}">
+                    <div class="swiper-zoom-container">
+                        <img src="{{ image.image.url }}" />
+                    </div>
+                </div>
+                {% endfor %}
             </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+            <div class="swipper-fullscreen"><img src="{% static 'main/img/full-screen.png' %}" alt=""></div>
         </div>
-        <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-                <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+
+        <div class="roominfo-maininfo">
+            <h3>{{ room.name }}</h3>
+            <div class="dull-line"></div>
+            <p>{{ room.description }}</p>
+            <div class="roominfo-price">
+                <span>{{ room.price }} ₽/ день</span>
             </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-                <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-                <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-                <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-                <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-                <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-                <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
-            </div>
-        </div>
-        <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-                <img src="https://swiperjs.com/demos/images/nature-9.jpg" />
+            <div class="roominfo-convenience-list">
+                {% for convenience in room.convenience.all %}
+                <div class="roominfo-convenience-el">
+                    <div class="flex-row">
+                        <img src="{{ convenience.image.url }}" alt="">
+                        <div>{{ convenience.name }}</div>
+                    </div>
+                    {% if covenience.price %}
+                    <span>{{covenience.price}}</span>
+                    {% endif %}
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
 </div>
 {% endblock %}
 

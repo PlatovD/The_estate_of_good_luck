@@ -231,10 +231,6 @@
 }
 
 @media (max-width: 800px) {
-    footer {
-        display: none;
-    }
-
     .list-container-grid {
         padding: 0;
         width: 100%;
