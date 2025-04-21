@@ -23,7 +23,7 @@
     }
 
     .room-descr {
-        color: #844c1e;
+        color: var(--third-color);
         font-size: 1.3em;
 
         .room-descr-price {

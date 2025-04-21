@@ -1,27 +1,13 @@
 @font-face {
-    font-family: 'Roboto';
-    src: url('../fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
-    font-weight: 100 900;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Nunito';
-    src: url('../fonts/Nunito-VariableFont_wght.ttf') format('truetype');
+    src: url('../fonts/Nunito-VariableFont_wght.woff2') format('truetype');
     font-weight: 200 1000;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'Mulish';
-    src: url('../fonts/Mulish-VariableFont_wght.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Marck-Script';
-    src: url('../fonts/MarckScript-Regular.ttf') format('truetype');
+    src: url('../fonts/MarckScript-Regular.woff2') format('truetype');
     font-weight: 100 900;
     font-style: normal;
 }
@@ -479,6 +465,10 @@ footer {
 
     #mobile-space {
         display: block;
+    }
+
+    .animated-line {
+        height: 1px;
     }
 
     .head-container {
