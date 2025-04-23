@@ -31,5 +31,20 @@ class RoomConvenienceAdmin(admin.ModelAdmin):
     list_display_links = ('pk', 'name',)
 
 
-admin.site.register(RoomImage)
-admin.site.register(ServiceImage)
+@admin.register(RoomImage)
+class RoomImageAdmin(admin.ModelAdmin):
+    list_display = ('to_room',)
+
+    def to_room(self, obj):
+        return obj.room.name
+
+
+@admin.register(ServiceImage)
+class ServiceImageAdmin(admin.ModelAdmin):
+    list_display = ('to_service',)
+
+    def to_service(self, obj):
+        return obj.service.name
+
+# admin.site.register(RoomImage)
+# admin.site.register(ServiceImage)

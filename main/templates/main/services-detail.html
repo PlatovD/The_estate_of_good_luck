@@ -11,7 +11,7 @@
     <div class="roominfo-grid">
         <div class="swiper swiperRoomInfo">
             <div class="swiper-wrapper">
-                {% for image in serivce.images.all %}
+                {% for image in service.images.all %}
                 <div class="swiper-slide">
                     <div class="swiper-zoom-container">
                         <a class="fslightbox-swiper" href="{{ image.image.url }}" data-fslightbox="room-gallery"
@@ -31,9 +31,9 @@
         <div class="roominfo-maininfo">
             <h3>{{ service.name }}</h3>
             <div class="dull-line"></div>
-            <p>{{ service.description }}</p>
+            <p>{{ service.description|safe }}</p>
             <div class="roominfo-price">
-                <span>{{ service.price }} ₽/ день</span>
+                <span>{{ service.price }} ₽/ час</span>
             </div>
         </div>
     </div>

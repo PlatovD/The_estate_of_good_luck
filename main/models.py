@@ -50,6 +50,9 @@ class Room(models.Model):
         verbose_name = "Номер"
         verbose_name_plural = "Номера"
 
+    def __str__(self):
+        return self.name
+
     def get_absolute_url(self):
         return reverse('main:rooms_detail', kwargs={
             'room_type': self.category.name,
@@ -62,7 +65,7 @@ class Service(models.Model):
     name = models.CharField(max_length=100, verbose_name="Название услуги")
     description = models.TextField(verbose_name="Описание")
     price = models.IntegerField(verbose_name="Цена")
-    isSpecial = models.BooleanField(verbose_name="Статус", default=False)
+    isSpecial = models.BooleanField(verbose_name="Специальная услуга?", default=False)
     preview = models.ImageField("Превью", upload_to="services_previews/", blank=False)
     objects = models.Manager()
     manager = ServicesManager()
@@ -70,6 +73,9 @@ class Service(models.Model):
     class Meta:
         verbose_name = "Услуга"
         verbose_name_plural = "Услуги"
+
+    def __str__(self):
+        return self.name
 
 
 class ServiceImage(models.Model):

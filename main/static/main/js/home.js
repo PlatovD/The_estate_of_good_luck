@@ -129,7 +129,7 @@ function main() {
   setOnRoomsHover();
   initSwipers();
   animateBookmarks();
-  // initYanexMap();
+  initYanexMap();
 }
 
 

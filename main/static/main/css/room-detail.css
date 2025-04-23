@@ -3,6 +3,7 @@
     overflow: hidden;
     user-select: none;
     border-radius: 5px;
+    height: 600px;
 
     .swiper-slide img {
         object-position: center;
@@ -47,8 +48,8 @@
 
     .swipper-fullscreen {
         position: absolute;
-        bottom: 0.6em;
-        right: 0.6em;
+        right: 1em;
+        bottom: 1em;
         z-index: 1;
         width: 1.5em;
         cursor: pointer;
@@ -79,10 +80,17 @@
             margin: auto;
         }
 
-        p {
+        p,
+        li {
             padding-top: 1em;
             font-size: 1.3em;
+            
         }
+
+        li {
+            margin-left: 1em;
+        }
+        
 
         .roominfo-price {
             padding-top: 2em;
@@ -97,6 +105,10 @@
             padding-top: 2em;
             display: grid;
             grid-template-columns: repeat(3, 1fr);
+
+            .roominfo-convenience-el {
+                margin: 0.2em;
+            }
 
             .flex-row {
                 img {
@@ -116,10 +128,15 @@
 
     .swiperRoomInfo {
         width: 100%;
+        height: auto;
+        border-radius: 0px !important;
+    }
+
+    .swiper-slide img {
+        border-radius: 0px !important;
     }
 
     .roominfo-grid .roominfo-convenience-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
     }
-
 }
